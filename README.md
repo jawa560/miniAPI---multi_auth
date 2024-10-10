@@ -1,3 +1,6 @@
+# 說明
+    因為本實驗要清楚其底層運作，故不使用網頁，改用**POSTMAN**工具來詳細檢視驗證及授權的過程。
+    
 # 設置重點提示
 在專案的appsettings.json 中，在JWT 中的KEY 宣告自己的KEY種子
 ![1](images/1_appsettings_1.png?width=907&height=550)
