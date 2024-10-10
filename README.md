@@ -25,7 +25,7 @@
 
 ![7](images/6_get_401_error.png)
 
-- **但是**，若我們套用了特定策略:
+- **但是**，若我們套用了特定策略(本範例最後定稿的寫法):
 ```
 options.AddPolicy("SecureEndpointPolicy", policy =>
     policy.RequireRole("SecureRole"));
