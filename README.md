@@ -27,5 +27,5 @@
 options.AddPolicy("SecureEndpointPolicy", policy =>
     policy.RequireRole("SecureRole"));
 '''
-經過仔細驗證，可以發現當路徑宣告為** [Authorize]**(下圖藍色部分)，只要帳號密碼通過，即可訪問，不須附上Token。但是若宣告為 **RequireAuthorization("SecureEndpointPolicy")**(下圖綠色部分)，則表示須符合特定Policy，頁面一定要附上Token，才能訪問。
+仔細驗證後可以發現當路徑宣告為** [Authorize]**(下圖藍色部分)，只要帳號密碼通過，即可訪問，不須附上Token。但是若宣告為 **RequireAuthorization("SecureEndpointPolicy")**(下圖綠色部分)，則表示須符合特定Policy，頁面一定要附上Token，才能訪問。
 ![8](images/8_diff_of_auth.png)
