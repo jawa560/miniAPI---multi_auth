@@ -70,11 +70,20 @@ app.MapPost("/login", [AllowAnonymous] async (HttpContext context) =>
         signingCredentials: creds);
 
     await context.Response.WriteAsync(new JwtSecurityTokenHandler().WriteToken(token));
+    //var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+    // 將 Token 存儲在 Cookie 中
+    //context.Response.Cookies.Append("jwt", tokenString, new CookieOptions
+    //{
+    //    HttpOnly = true,
+    //    Secure = true,
+    //    SameSite = SameSiteMode.Strict
+    //});
 });
 
 app.MapGet("/login", () => "This is a public endpoint").AllowAnonymous();
 app.MapGet("/secure", [Authorize] () => "This is a secure endpoint.");
-
+app.MapGet("/", [Authorize] () => "This is the root endpoint.");
 app.MapGet("/secure/endpoint1", () => "This is a secure endpoint 1").RequireAuthorization("SecureEndpointPolicy");
 app.MapGet("/secure/endpoint2", () => "This is a secure endpoint 2").RequireAuthorization("SecureEndpointPolicy");
 app.MapGet("/public/endpoint", () => "This is a public endpoint").AllowAnonymous();
